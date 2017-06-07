@@ -1,3 +1,4 @@
+
 const { PI, } = Math;
 const dGon = {
   x: 0, y: 0, radius: 10, rotation: 0, numSides: 3, segments: 1,
@@ -33,9 +34,6 @@ export const setSegments = s => poly =>
   polygon(getX(poly), getY(poly), radius(poly), rotation(poly), numSides(poly), s);
 
 export const changeX = qt => poly => setX(qt + getX(poly))(poly);
-export const baseAngle = poly => 2 * PI / numSides(poly);
-export const isEven = poly => numSides(poly) % 2 === 0;
-export const xEven = poly => !isEven(poly);
 
 // function Polygon(cx, cy, radius, rotation, numSides, dFactory) {
 //       this.cx = cx;

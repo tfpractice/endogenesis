@@ -65,5 +65,8 @@
     "unmockedModulePathPatterns": [
       "jasmine-expect"
     ]
+  },
+  "dependencies": {
+    "p5": "^0.5.11"
   }
 }
