@@ -33,7 +33,7 @@ export const setNumSides = n => poly =>
 export const setSegments = s => poly =>
   polygon(getX(poly), getY(poly), radius(poly), rotation(poly), numSides(poly), s);
 
-export const changeX = qt => poly => setX(qt + getX(poly))(poly);
+// export const changeX = qt => poly => setX(qt + getX(poly))(poly);
 
 // function Polygon(cx, cy, radius, rotation, numSides, dFactory) {
 //       this.cx = cx;

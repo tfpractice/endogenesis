@@ -1,6 +1,6 @@
 import 'jasmine-expect';
-import { getX, getY, numSides, polygon, radius, rotation, segments,
-  setNumSides, setRadius, setRotation, setSegments, setX, setY, } 
+import { getX, getY, numSides, polygon, radius, rotation,
+  segments, setNumSides, setRadius, setRotation, setSegments, setX,setY, } 
 from 'src/polygon';
 
 const basePoly = polygon();

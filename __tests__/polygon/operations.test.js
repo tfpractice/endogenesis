@@ -1,7 +1,7 @@
 import 'jasmine-expect';
 import { polygon, } from 'src/polygon';
-import { apoDir, apoFactor, apoMag, apoVector, baseAngle, center, isEven, xEven,
- } from 'src/polygon/operations';
+import { apoDir, apoFactor, apoMag, apoOffset, apoVector, baseAngle, center, circumVector,
+ isEven, vertices,xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon();
 
@@ -44,6 +44,12 @@ describe('operations', () => {
       expect(apoFactor(basePoly)).toBeDefined();
     });
   });
+  describe('apoOffset', () => {
+    it('does some calculation based on polydata', () => {
+      console.log(apoOffset(basePoly));
+      expect(apoOffset(basePoly)).toBeDefined();
+    });
+  });
   describe('apoMag', () => {
     it('does some calculation based on polydata', () => {
       console.log(apoMag(basePoly));
@@ -60,6 +66,17 @@ describe('operations', () => {
     it('does some calculation based on polydata', () => {
       console.log(apoVector(basePoly));
       expect(apoVector(basePoly)).toBeDefined();
+    });
+  });
+  describe('circumVector', () => {
+    it('returns a vector with the magnitude and direction of the circumscribed circle', () => {
+      console.log('circumVector(basePoly)', circumVector(basePoly));
+      expect(circumVector(basePoly)).toBeDefined();
+    });
+  });
+  describe('vertices', () => {
+    it('returns an array of n vertices', () => {
+      console.log('vertices(basePoly)', vertices(basePoly));      
     });
   });
 });

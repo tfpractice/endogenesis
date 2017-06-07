@@ -11,9 +11,24 @@ export const baseAngle = poly => 2 * PI / numSides(poly);
 export const center = poly => new Vector(getX(poly),getY(poly));
 export const apoFactor = poly => cos(PI / numSides(poly));
 export const apoMag = poly => radius(poly) * apoFactor(poly);
-export const apoDir = poly => baseAngle(poly) / 2;
-export const apoVector = poly => new Vector.fromAngle(rotation(poly) + apoDir(poly));
+export const apoOffset = poly => baseAngle(poly) / 2;
+export const apoDir = poly => rotation(poly) + apoOffset(poly);
+export const apoVector = poly => 
+  new Vector.fromAngle(apoDir(poly)).mult();
 
+export const circumVector = (poly) => {
+  console.log('Array(numSides(poly)).keys()', [ ...Array(numSides(poly)).keys(), ]); 
+  return new Vector.fromAngle(rotation(poly)).mult(radius(poly)); 
+};
+
+const range = (x = 0) => [ ...Array(x).keys(), ];
+
+export const nthVertex = poly => (n = 0) =>
+circumVector(poly).rotate(n * baseAngle(poly)).add(center(poly));
+
+export const vertices = poly =>
+  range(numSides(poly)).map(nthVertex(poly));
+  
 //       this.apoFactor = Math.cos(Math.PI / this.numSides);
 
 // this.even = ((this.sideCount % 2) == 0) ? true : false;
