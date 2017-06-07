@@ -1,0 +1,69 @@
+{
+  "name": "endogenesis",
+  "version": "a small library for producing fractal geometric data Edit",
+  "description": "a small library for producing fractal geometric data Edit",
+  "main": "index.js",
+  "repository": "git@github.com:tfpractice/endogenesis.git",
+  "author": "theory friction practice <jackson.brebnor@gmail.com>",
+  "license": "MIT",
+  "browser": "dist/bundle.umd.js",
+  "module": "dist/bundle.es6.js",
+  "modules.root": "src",
+  "scripts": {
+    "build": "rimraf dist/ && yarn build:umd && yarn build:es6",
+    "build:es6": "NODE_ENV=production rollup -c rollup.es6.config.js",
+    "build:umd": "NODE_ENV=production rollup -c rollup.config.js",
+    "build:dev": "rollup -c rollup.es6.config.js",
+    "dev": "node .",
+    "prepublish": "yarn build",
+    "test": "NODE_ENV=test jest",
+    "coveralls": "yarn test && cat coverage/lcov.info | coveralls",
+    "doc": "docco src/*",
+    "lint": "./node_modules/.bin/eslint  --fix -c .eslintrc.js . --ext .js --ignore-path .gitignore --cache"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-uglify": "^1.0.2",
+    "babel-preset-latest": "^6.24.1",
+    "coveralls": "^2.13.1",
+    "docco": "^0.7.0",
+    "docco-plus-multiline": "^3.0.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-import-resolver-babel-module": "^3.0.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-json": "^1.2.0",
+    "jasmine-expect": "^3.7.0",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.42.0",
+    "rollup-plugin-alias": "^1.3.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-filesize": "^1.3.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-plugin-visualizer": "^0.2.1",
+    "surge": "^0.19.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "unmockedModulePathPatterns": [
+      "jasmine-expect"
+    ]
+  }
+}
