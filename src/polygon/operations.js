@@ -37,6 +37,8 @@ export const baseIdx = poly => i => floor(1 / segments(poly));
 
 export const edgePoint = poly => (i) => {
   console.log('(i % segments(poly))', (i % segments(poly)));
+  console.log('nthVertex(poly)(baseIdx(poly)(i))', nthVertex(poly)(baseIdx(poly)(i)));
+  console.log('nthVertex(poly)(baseIdx(poly)(i) + 1)', nthVertex(poly)(baseIdx(poly)(i) + 1)); 
   console.log(' lerpFactor(poly)', lerpFactor(poly));
   console.log('(i % segments(poly)) * lerpFactor(poly))', (i % segments(poly)) * lerpFactor(poly));
   return Vector.lerp(
