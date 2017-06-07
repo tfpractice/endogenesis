@@ -9,8 +9,8 @@ export default {
     entry: 'src/index.js',
     dest: 'dist/bundle.es6.js',
     format: 'es',
-    moduleId: 'fenugreek-collections',
-    moduleName: 'fenugreek-collections',
+    moduleId: 'endogenesis',
+    moduleName: 'endogenesis',
     sourceMap: true,
     plugins: [
       nodeResolve(),
