@@ -13,18 +13,18 @@ export const apoFactor = poly => cos(PI / numSides(poly));
 export const apoMag = poly => radius(poly) * apoFactor(poly);
 export const apoOffset = poly => baseAngle(poly) / 2;
 export const apoDir = poly => rotation(poly) + apoOffset(poly);
-export const apoVector = poly => 
-  new Vector.fromAngle(apoDir(poly)).mult();
 
-export const circumVector = (poly) => {
-  console.log('Array(numSides(poly)).keys()', [ ...Array(numSides(poly)).keys(), ]); 
-  return new Vector.fromAngle(rotation(poly)).mult(radius(poly)); 
-};
+export const apoVector = poly => 
+   Vector.fromAngle(apoDir(poly)).mult(apoMag(poly));
+
+export const circumVector = poly => 
+   Vector.fromAngle(rotation(poly)).mult(radius(poly));
 
 const range = (x = 0) => [ ...Array(x).keys(), ];
 
+// export const applyVector=vec=>poly
 export const nthVertex = poly => (n = 0) =>
-circumVector(poly).rotate(n * baseAngle(poly)).add(center(poly));
+  circumVector(poly).rotate(n * baseAngle(poly)).add(center(poly));
 
 export const vertices = poly =>
   range(numSides(poly)).map(nthVertex(poly));
