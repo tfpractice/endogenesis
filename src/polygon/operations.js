@@ -28,27 +28,49 @@ export const nthVertex = poly => (n = 0) =>
 
 export const vertices = poly =>
   range(numSides(poly)).map(nthVertex(poly));
-
+  
 export const pointCount = poly => segments(poly) * numSides(poly);
-export const lerpFactor = poly => pow(segments(poly), -1);
+export const lerpFactor = poly => segments(poly) ? segments(poly) ** -1 : 0;
+
+// pow(segments(poly), -1);
 export const upBound = poly => round((pointCount(poly) - 1) / 2);
 export const lowBound = poly => upBound(poly);
-export const baseIdx = poly => i => floor(1 / segments(poly));
+
+export const baseIdx = poly => i => floor(i / segments(poly));
+
+export const segMod = poly => i => i ? i % segments(poly) : i;
 
 export const edgePoint = poly => (i) => {
-  console.log('(i % segments(poly))', (i % segments(poly)));
-  console.log('nthVertex(poly)(baseIdx(poly)(i))', nthVertex(poly)(baseIdx(poly)(i)));
-  console.log('nthVertex(poly)(baseIdx(poly)(i) + 1)', nthVertex(poly)(baseIdx(poly)(i) + 1)); 
-  console.log(' lerpFactor(poly)', lerpFactor(poly));
-  console.log('(i % segments(poly)) * lerpFactor(poly))', (i % segments(poly)) * lerpFactor(poly));
+  console.log('i', i);
+
+  // console.log('segMod(poly)(i)', segMod(poly)(i));
+  // console.log(' lerpFactor(poly)', lerpFactor(poly));
+  // 
+  // console.log('segMod(poly)(i) * lerpFactor(poly)', segMod(poly)(i) * lerpFactor(poly));
+  // 
+  // console.log('nthVertex(i))', nthVertex(poly)(baseIdx(poly)(i)));
+  // console.log('nthVertex(i) + 1)', nthVertex(poly)(baseIdx(poly)(i) + 1)); 
+
+  // console.log('(segments(poly) % i) * lerpFactor(poly))', (segments(poly) % i) * lerpFactor(poly));
+  // 
+  // const res = Vector.lerp(
+  //   nthVertex(poly)(baseIdx(poly)(i)),
+  //   nthVertex(poly)(baseIdx(poly)(i) + 1),
+  //   (segMod(poly)(i) * lerpFactor(poly))); 
+  // 
+  // console.log('res', res);
   return Vector.lerp(
     nthVertex(poly)(baseIdx(poly)(i)),
     nthVertex(poly)(baseIdx(poly)(i) + 1),
-    ((i % segments(poly)) * lerpFactor(poly))); 
+    ((segments(poly) % i) * lerpFactor(poly))); 
 };
     
 export const edgePoints = poly =>
-      range(numSides(poly) * (segments(poly) + 1)).map(edgePoint(poly));
+
+// segments(poly) ?
+ range(pointCount(poly)).map(edgePoint(poly)); 
+
+ // : [];
 
 // ayer.prototype.establishPartitionPoints = function() {
 //     for (var i = 0; i < this.polygon.sideCount; i++) {
