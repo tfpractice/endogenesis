@@ -1,10 +1,10 @@
 const { PI, } = Math;
 const dGon = {
- x: 0, y: 0, radius: 10, rotation: 0, numSides: 3, segments: 1,
+  x: 0, y: 0, radius: 10, rotation: 0, numSides: 3, segments: 1,
 };
 
 export const polygon = (x = 0, y = 0, radius = 10, rotation = 0, numSides = 3, segments = 1) => ({
- x, y, radius, rotation, numSides, segments,
+  x, y, radius, rotation, numSides, segments,
 }); 
 
 export const getX = ({ x, } = dGon) => x;
@@ -15,20 +15,27 @@ export const numSides = ({ numSides, } = dGon) => numSides;
 export const segments = ({ segments, } = dGon) => segments;
 
 export const setX = x => poly =>
-polygon(x, getY(poly), radius(poly), rotation(poly), numSides(poly), segments(poly));
+  polygon(x, getY(poly), radius(poly), rotation(poly), numSides(poly), segments(poly));
+
 export const setY = y => poly =>
-polygon(getX(poly), y, radius(poly), rotation(poly), numSides(poly), segments(poly));
+  polygon(getX(poly), y, radius(poly), rotation(poly), numSides(poly), segments(poly));
+
 export const setRadius = rd => poly =>
-polygon(getX(poly), getY(poly), rd, rotation(poly), numSides(poly), segments(poly));
+  polygon(getX(poly), getY(poly), rd, rotation(poly), numSides(poly), segments(poly));
+
 export const setRotation = rt => poly =>
-polygon(getX(poly), getY(poly), radius(poly), rt, numSides(poly), segments(poly));
+  polygon(getX(poly), getY(poly), radius(poly), rt, numSides(poly), segments(poly));
+
 export const setNumSides = n => poly =>
-polygon(getX(poly), getY(poly), radius(poly), rotation(poly), n,segments(poly));
+  polygon(getX(poly), getY(poly), radius(poly), rotation(poly), n, segments(poly));
+
 export const setSegments = s => poly =>
-polygon(getX(poly), getY(poly), radius(poly), rotation(poly), numSides(poly), s);
- 
+  polygon(getX(poly), getY(poly), radius(poly), rotation(poly), numSides(poly), s);
+
+export const changeX = qt => poly => setX(qt + getX(poly))(poly);
 export const baseAngle = poly => 2 * PI / numSides(poly);
 export const isEven = poly => numSides(poly) % 2 === 0;
+export const xEven = poly => !isEven(poly);
 
 // function Polygon(cx, cy, radius, rotation, numSides, dFactory) {
 //       this.cx = cx;
@@ -44,3 +51,17 @@ export const isEven = poly => numSides(poly) % 2 === 0;
 //       this.update();
 //       this.setDisplayer();
 //   };
+
+// this.even = ((this.sideCount % 2) == 0) ? true : false;
+//         this.peripherals = [];
+//         this.baseAngle = ((2 * Math.PI) / this.sideCount);
+//         this.center = new p5.Vector(this.cx, this.cy);
+//         this.apoOffset = this.baseAngle / 2;
+//         this.vertices = [];
+//         this.apoMag = this.radius * Math.cos(Math.PI / this.sideCount);
+//         this.circumVector = new p5.Vector.fromAngle(this.rotation);
+//         this.circumVector.mult(this.radius);
+//         this.apoVector = new p5.Vector.fromAngle(this.rotation + this.apoOffset);
+//         this.apoVector.mult(this.apoMag);
+//         this.establishVertices();
+//         this.setDisplayer();
