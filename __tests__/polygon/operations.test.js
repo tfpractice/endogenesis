@@ -127,7 +127,7 @@ describe('operations', () => {
   });
   describe('segMod', () => {
     it('segMod', () => {
-      expect(segMod(basePoly)(1)).toBeTruthy();
+      expect(segMod(basePoly)(1)).toBe(0);
     });
   });
   describe('edgePoint', () => {
