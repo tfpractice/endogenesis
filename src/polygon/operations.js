@@ -35,8 +35,19 @@ export const upBound = poly => round((pointCount(poly) - 1) / 2);
 export const lowBound = poly => upBound(poly);
 export const baseIdx = poly => i => floor(1 / segments(poly));
 
-// export const edgePoints =poly=>i=>
-//   Vector.lerp(nthVertex(poly)(baseIdx(poly)(i)),nthVertex(poly)(i+1)
+export const edgePoint = poly => (i) => {
+  console.log('(i % segments(poly))', (i % segments(poly)));
+  console.log(' lerpFactor(poly)', lerpFactor(poly));
+  console.log('(i % segments(poly)) * lerpFactor(poly))', (i % segments(poly)) * lerpFactor(poly));
+  return Vector.lerp(
+    nthVertex(poly)(baseIdx(poly)(i)),
+    nthVertex(poly)(baseIdx(poly)(i) + 1),
+    ((i % segments(poly)) * lerpFactor(poly))); 
+};
+    
+export const edgePoints = poly =>
+      range(numSides(poly) * (segments(poly) + 1)).map(edgePoint(poly));
+
 // ayer.prototype.establishPartitionPoints = function() {
 //     for (var i = 0; i < this.polygon.sideCount; i++) {
 //         // console.log("display is calling the base object");

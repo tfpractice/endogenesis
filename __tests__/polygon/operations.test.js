@@ -1,9 +1,13 @@
 import 'jasmine-expect';
 import { polygon, } from 'src/polygon';
 import { apoDir, apoFactor, apoMag, apoOffset, apoVector, baseAngle, center, circumVector,
- isEven, vertices,xEven, } from 'src/polygon/operations';
+ edgePoints, isEven,vertices,xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon();
+
+console.log('vertices(basePoly)', vertices(basePoly));
+
+console.log('edgePoints(basePoly)', edgePoints(basePoly));
 
 describe('operations', () => {
   describe('center', () => {
