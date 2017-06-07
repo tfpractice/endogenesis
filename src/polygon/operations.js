@@ -1,14 +1,14 @@
 import { Vector, } from 'p5';
-import { getX, getY,numSides,radius,rotation, } from './data';
+import { getX, getY, numSides, radius, rotation, segments, } from './data';
 
-const { cos, PI, } = Math;
+const { cos, PI, pow, round, floor, } = Math;
 
 // console.log('Vector', Vector);
 export const isEven = poly => numSides(poly) % 2 === 0;
 export const xEven = poly => !isEven(poly);
 export const baseAngle = poly => 2 * PI / numSides(poly);
 
-export const center = poly => new Vector(getX(poly),getY(poly));
+export const center = poly => new Vector(getX(poly), getY(poly));
 export const apoFactor = poly => cos(PI / numSides(poly));
 export const apoMag = poly => radius(poly) * apoFactor(poly);
 export const apoOffset = poly => baseAngle(poly) / 2;
@@ -28,19 +28,28 @@ export const nthVertex = poly => (n = 0) =>
 
 export const vertices = poly =>
   range(numSides(poly)).map(nthVertex(poly));
-  
-//       this.apoFactor = Math.cos(Math.PI / this.numSides);
 
-// this.even = ((this.sideCount % 2) == 0) ? true : false;
-//         this.peripherals = [];
-//         this.baseAngle = ((2 * Math.PI) / this.sideCount);
-//         this.center = new p5.Vector(this.cx, this.cy);
-//         this.apoOffset = this.baseAngle / 2;
-//         this.vertices = [];
-//         this.apoMag = this.radius * Math.cos(Math.PI / this.sideCount);
-//         this.circumVector = new p5.Vector.fromAngle(this.rotation);
-//         this.circumVector.mult(this.radius);
-//         this.apoVector = new p5.Vector.fromAngle(this.rotation + this.apoOffset);
-//         this.apoVector.mult(this.apoMag);
-//         this.establishVertices();
-//         this.setDisplayer();
+export const pointCount = poly => segments(poly) * numSides(poly);
+export const lerpFactor = poly => pow(segments(poly), -1);
+export const upBound = poly => round((pointCount(poly) - 1) / 2);
+export const lowBound = poly => upBound(poly);
+export const baseIdx = poly => i => floor(1 / segments(poly));
+
+// export const edgePoints =poly=>i=>
+//   Vector.lerp(nthVertex(poly)(baseIdx(poly)(i)),nthVertex(poly)(i+1)
+// ayer.prototype.establishPartitionPoints = function() {
+//     for (var i = 0; i < this.polygon.sideCount; i++) {
+//         // console.log("display is calling the base object");
+//         // console.log(this.polygon);
+//         var nextIndex = (i + 1) % this.polygon.sideCount;
+//         var tempCenter = this.polygon.center.copy();
+//         var tempVertex = this.polygon.vertices[i].copy();
+//         var tempNext = this.polygon.vertices[nextIndex].copy();
+//         // this.polygon.sideCount[i]
+//         for (var j = 0; j < this.pointsPerEdge; j++) {
+//             var pointIndex = (this.pointsPerEdge * i) + j;
+//             var instanceLerp = j * this.lerpFactor;
+//             this.partitionPoints[pointIndex] = new p5.Vector.lerp(tempVertex, tempNext, instanceLerp);
+//         };
+//     };
+// };
