@@ -1,7 +1,9 @@
 import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
 import { apoDir, apoFactor, apoMag, apoOffset, apoVector, baseAngle, center, circumVector,
- edgePoints, isEven,vertices,xEven, } from 'src/polygon/operations';
+ edgePoints, isEven, lerpFactor, nthVertex, pointCount,
+ vertices,
+ xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon();
 
@@ -86,6 +88,22 @@ describe('operations', () => {
     it('returns an array of n vertices', () => {
       console.log('vertices(basePoly)', vertices(basePoly));
       expect(vertices(basePoly)).toBeArray();
+    });
+  });
+  
+  describe('nthVertex', () => {
+    it('nthVertex', () => {
+      expect(nthVertex(basePoly)(0)).toBeTruthy();
+    });
+  });
+  describe('pointCount', () => {
+    it('pointCount', () => {
+      expect(pointCount(basePoly)).toBe(3);
+    });
+  });
+  describe('lerpFactor', () => {
+    it('lerpFactor', () => {
+      expect(lerpFactor(basePoly)).toBe(1);
     });
   });
 });
