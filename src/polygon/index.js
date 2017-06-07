@@ -1,1 +1,1 @@
-export const polygon = 'polygon';
+export * from './data';
