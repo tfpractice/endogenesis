@@ -1,7 +1,11 @@
 import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
-import { apoDir, apoFactor, apoMag, apoOffset, apoVector, baseAngle, center, circumVector,
- edgePoints, isEven, lerpFactor, nthVertex, pointCount,
+import { apoDir, apoFactor, apoMag, apoOffset, apoVector, baseAngle, baseIdx, center,
+ circumVector, edgePoint, edgePoints, isEven, lerpFactor,
+ lowBound,nthVertex,
+ pointCount,
+ segMod,
+ upBound,
  vertices,
  xEven, } from 'src/polygon/operations';
 
@@ -104,6 +108,31 @@ describe('operations', () => {
   describe('lerpFactor', () => {
     it('lerpFactor', () => {
       expect(lerpFactor(basePoly)).toBe(1);
+    });
+  });
+  describe('upBound', () => {
+    it('upBound', () => {
+      expect(upBound(basePoly)).toBeTruthy();
+    });
+  });
+  describe('lowBound', () => {
+    it('lowBound', () => {
+      expect(lowBound(basePoly)).toBeTruthy();
+    });
+  });
+  describe('baseIdx', () => {
+    it('baseIdx', () => {
+      expect(baseIdx(basePoly)(1)).toBeTruthy();
+    });
+  });
+  describe('segMod', () => {
+    it('segMod', () => {
+      expect(segMod(basePoly)(1)).toBeTruthy();
+    });
+  });
+  describe('edgePoint', () => {
+    it('edgePoint', () => {
+      expect(edgePoint(basePoly)(1)).toBeTruthy();
     });
   });
 });
