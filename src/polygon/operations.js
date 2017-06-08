@@ -20,12 +20,12 @@ export const apoNorm = poly => Vector.fromAngle(apoDir(poly));
 export const apoVector = poly => apoNorm(poly).mult(apoMag(poly));
 
 export const nthVector = poly => (n = 0) => circumNorm(poly).rotate(n * baseAngle(poly));
-
 export const nthVertex = poly => (n = 0) => nthVector(poly)(n).add(center(poly));
+
 export const addCenter = poly => vec => vec.add(center(poly));
 export const vertVex = poly => range(numSides(poly)).map(nthVector(poly));
 
-export const vertices = poly => range(numSides(poly)).map(nthVertex(poly));
+export const vertices = poly => range(numSides(poly)).map(addCenter(poly));
 
 export const pointCount = poly => segments(poly) * numSides(poly);
 export const lerpFactor = poly => segments(poly) ? segments(poly) ** -1 : 0;
