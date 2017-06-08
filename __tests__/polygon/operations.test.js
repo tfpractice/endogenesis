@@ -3,13 +3,10 @@ import { polygon, setNumSides, setSegments, } from 'src/polygon';
 import { addCenter, apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, 
   apoNorm, apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, 
   circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthTick,
-  nthVector, nthVertex, pointCount, segMod, upBound, vertices, vertVex, 
+  nthVector, nthVertex, pointCount, segMod, upBound, vectors, vertices, 
 xEven, } from 'src/polygon/operations';
 
-const basePoly = polygon(0,0,10);
-
-console.log('basePoly', basePoly);
-console.log('edgePoints(basePoly)', edgePoints((setSegments(2)(basePoly))));
+const basePoly = polygon(0, 0, 10);
 
 describe('operations', () => {
   describe('center', () => {
@@ -71,7 +68,6 @@ describe('operations', () => {
   });
   describe('vertices', () => {
     it('returns an array of n vertices', () => {
-      console.log('vertices(basePoly)', vertices(basePoly));
       expect(vertices(basePoly)).toBeArray();
     });
   });
@@ -153,9 +149,9 @@ describe('operations', () => {
     });
   });
   
-  describe('vertVex', () => {
+  describe('vectors', () => {
     it('returns the normalized vectors of the vertices', () => {
-      expect(vertVex(basePoly)).toBeTruthy();
+      expect(vectors(basePoly)).toBeTruthy();
     });
   });
   describe('addCenter', () => {
@@ -165,8 +161,7 @@ describe('operations', () => {
   });
   describe('nthTick', () => {
     it('returns the vector of the tick', () => {
-      console.log('nthTick(basePoly)(1)', nthTick(basePoly)(1));
-      expect(nthTick(basePoly)(1)).toBeTruthy();
+      expect(nthTick(basePoly)(1)(1)).toBeTruthy();
     });
   });
 });
