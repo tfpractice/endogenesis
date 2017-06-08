@@ -1,13 +1,9 @@
 import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
-import { apoDir, apoFactor, apoMag, apoOffset, apoVector, baseAngle, baseIdx, center,
- circumVector, edgePoint, edgePoints, isEven, lerpFactor,
- lowBound,nthVertex,
- pointCount,
- segMod,
- upBound,
- vertices,
- xEven, } from 'src/polygon/operations';
+import { apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, apoOffset, 
+  apoVector, baseAngle, baseIdx, center, circumVector, edgePoint, edgePoints, 
+  isEven, lerpFactor, lowBound, nthVertex, pointCount, segMod, upBound,
+  vertices, xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon();
 
@@ -133,6 +129,26 @@ describe('operations', () => {
   describe('edgePoint', () => {
     it('edgePoint', () => {
       expect(edgePoint(basePoly)(1)).toBeTruthy();
+    });
+  });
+  describe('edgePoints', () => {
+    it('edgePoints', () => {
+      expect(edgePoints(basePoly)).toBeArray();
+    });
+  });
+  describe('apexFloor', () => {
+    it('apexFloor', () => {
+      expect(apexFloor(basePoly)).toBeTruthy();
+    });
+  });
+  describe('apexCeil', () => {
+    it('apexCeil', () => {
+      expect(apexCeil(basePoly)).toBeTruthy();
+    });
+  });
+  describe('apex', () => {
+    it('apex', () => {
+      expect(apex(basePoly)).toBeTruthy();
     });
   });
 });
