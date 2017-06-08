@@ -2,27 +2,22 @@ import { Vector, } from 'p5';
 import { getX, getY, numSides, radius, rotation, segments, } from './data';
 
 const { cos, PI, pow, round, floor, } = Math;
+const range = (x = 0) => [ ...Array(x).keys(), ];
 
 export const isEven = poly => numSides(poly) % 2 === 0;
 export const xEven = poly => !isEven(poly);
 export const baseAngle = poly => 2 * PI / numSides(poly);
 
 export const center = poly => new Vector(getX(poly), getY(poly));
+export const circumNorm = poly => Vector.fromAngle(rotation(poly));
+export const circumVector = poly => circumNorm(poly).mult(radius(poly));
+
 export const apoFactor = poly => cos(PI / numSides(poly));
-export const apoMag = poly => radius(poly) * apoFactor(poly);
 export const apoOffset = poly => baseAngle(poly) / 2;
 export const apoDir = poly => rotation(poly) + apoOffset(poly);
-
-export const apoVector = poly => 
-   Vector.fromAngle(apoDir(poly)).mult(apoMag(poly));
-   
-export const circumVector = poly => 
-   Vector.fromAngle(rotation(poly)).mult(radius(poly));
-
-export const apoNorm = poly => apoVector(poly).normalize();
-export const circumNorm = poly => circumVector(poly).normalize();
-   
-const range = (x = 0) => [ ...Array(x).keys(), ];
+export const apoMag = poly => radius(poly) * apoFactor(poly);
+export const apoNorm = poly => Vector.fromAngle(apoDir(poly));
+export const apoVector = poly => apoNorm(poly).mult(apoMag(poly));
 
 export const nthVertex = poly => (n = 0) =>
   circumVector(poly).rotate(n * baseAngle(poly)).add(center(poly));

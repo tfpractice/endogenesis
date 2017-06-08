@@ -158,6 +158,8 @@ describe('operations', () => {
   });
   describe('circumNorm', () => {
     it('reurns the normalized circumVector', () => {
+      console.log('circumNorm(basePoly)', circumNorm(basePoly));
+      console.log('circumNorm(basePoly)', apoNorm(basePoly));
       expect(circumNorm(basePoly)).toBeTruthy();
     });
   });

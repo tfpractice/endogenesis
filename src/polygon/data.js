@@ -4,7 +4,7 @@ const dGon = {
   x: 0, y: 0, radius: 10, rotation: 0, numSides: 3, segments: 1,
 };
 
-export const polygon = (x = 0, y = 0, radius = 10, rotation = 0, numSides = 3, segments = 1) => ({
+export const polygon = (x = 0, y = 0, radius = 1, rotation = 0, numSides = 3, segments = 1) => ({
   x, y, radius, rotation, numSides, segments,
 }); 
 

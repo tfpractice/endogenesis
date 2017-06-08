@@ -10,7 +10,7 @@ describe('polygon', () => {
     it('returns an object with a geometric properties', () => {
       expect(basePoly.x).toEqual(0);
       expect(basePoly.y).toEqual(0);
-      expect(basePoly.radius).toEqual(10);
+      expect(basePoly.radius).toEqual(1);
       expect(basePoly.rotation).toEqual(0);
       expect(basePoly.numSides).toEqual(3);
       expect(basePoly.segments).toEqual(1);
@@ -29,7 +29,7 @@ describe('polygon', () => {
   });
   describe('radius', () => {
     it('returns the radius proprerty', () => {
-      expect(radius(basePoly)).toEqual(10);
+      expect(radius(basePoly)).toEqual(1);
     });
   });
   describe('rotation', () => {
