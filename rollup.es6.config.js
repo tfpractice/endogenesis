@@ -9,8 +9,9 @@ export default {
     entry: 'src/index.js',
     dest: 'dist/bundle.es6.js',
     format: 'es',
-    moduleId: 'endogenesis',
+    amd: { id: 'endogenesis', },
     moduleName: 'endogenesis',
+    external: [ 'p5', 'fenugreek-collections', ],
     sourceMap: true,
     plugins: [
       nodeResolve(),
