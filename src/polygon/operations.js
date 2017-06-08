@@ -49,4 +49,7 @@ export const edgePoints = poly => tickPoints(poly)(segments(poly));
 export const apexFloor = poly => (pointCount(poly) - 1) % pointCount(poly);
 export const apexCeil = poly => (pointCount(poly) + 1) % pointCount(poly);
 export const apex = poly => new Vector(vertices(poly)[0].x, vertices(poly)[0].y,);
-export { nthVector, vertices, tickVex, vectors, nthTick, nthVertex, };
+
+// export { nthVector, vertices, tickVex, vectors, nthTick, nthVertex, };
+
+export * from './vectors';

@@ -4,7 +4,7 @@ import { applyVect, baseAngle, circumNorm, range, } from './operations';
 
 const { floor, } = Math;
 
-export const baseIdx = nTix => i => floor(i / nTix);
+export const tickBase = nTix => i => floor(i / nTix);
 
 export const tickInv = nTix => nTix ? nTix ** -1 : 0;
 export const tickMod = nTix => i => i ? i % nTix : i;
@@ -16,8 +16,8 @@ export const vectors = poly => range(numSides(poly)).map(nthVector(poly));
 export const vertices = poly => vectors(poly).map(applyVect(poly));
 
 export const nthTick = poly => nTix => n => Vector.lerp(
-    nthVector(poly)(baseIdx(nTix)(n)),
-    nthVector(poly)(baseIdx(nTix)(n) + 1),
+    nthVector(poly)(tickBase(nTix)(n)),
+    nthVector(poly)(tickBase(nTix)(n) + 1),
     tickFactor(nTix)(n));
 
     // export const nthTickPoin = poly => (n = 0) => applyVect(poly)(nthVector(poly)(n));
