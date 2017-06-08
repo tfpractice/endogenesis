@@ -1,24 +1,18 @@
 import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
-import { apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, apoNorm, 
-  apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, circumVector, 
-  edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthVertex, pointCount,
-  segMod, upBound, vertices, xEven, } from 'src/polygon/operations';
+import { addCenter, apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, 
+  apoNorm, apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, 
+  circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthVector,
+  nthVertex, pointCount, segMod, upBound, vertices, vertVex, xEven, 
+} from 'src/polygon/operations';
 
 const basePoly = polygon();
 
-// console.log('vertices(basePoly)', vertices(basePoly));
-
-// console.log('edgePoints(basePoly)', edgePoints(basePoly));
-
 console.log('edgePoints(basePoly)', edgePoints((setSegments(2)(basePoly))));
-
-// console.log('edgePoints(basePoly)', edgePoints(setNumSides(4)(setSegments(4)(basePoly))));
 
 describe('operations', () => {
   describe('center', () => {
     it('returns an new vector from the x and y positions', () => {
-      // console.log('center(basePoly)', center(basePoly));
       expect(center(basePoly).x).toBeDefined();
       expect(center(basePoly).y).toBeDefined();
       expect(center(basePoly).z).toBeDefined();
@@ -26,61 +20,51 @@ describe('operations', () => {
   });
   describe('isEven', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(isEven(basePoly));
       expect(isEven(basePoly)).toBeDefined();
     });
   });
   describe('xEven', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(xEven(basePoly));
       expect(xEven(basePoly)).toBeDefined();
     });
   });
   describe('baseAngle', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(baseAngle(basePoly));
       expect(baseAngle(basePoly)).toBeDefined();
     });
   });
   describe('center', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(center(basePoly));
       expect(center(basePoly)).toBeDefined();
     });
   });
   describe('apoFactor', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(apoFactor(basePoly));
       expect(apoFactor(basePoly)).toBeDefined();
     });
   });
   describe('apoOffset', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(apoOffset(basePoly));
       expect(apoOffset(basePoly)).toBeDefined();
     });
   });
   describe('apoMag', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(apoMag(basePoly));
       expect(apoMag(basePoly)).toBeDefined();
     });
   });
   describe('apoDir', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(apoDir(basePoly));
       expect(apoDir(basePoly)).toBeDefined();
     });
   });
   describe('apoVector', () => {
     it('does some calculation based on polydata', () => {
-      // console.log(apoVector(basePoly));
       expect(apoVector(basePoly)).toBeDefined();
     });
   });
   describe('circumVector', () => {
     it('returns a vector with the magnitude and direction of the circumscribed circle', () => {
-      // console.log('circumVector(basePoly)', circumVector(basePoly));
       expect(circumVector(basePoly)).toBeDefined();
     });
   });
@@ -94,6 +78,12 @@ describe('operations', () => {
   describe('nthVertex', () => {
     it('nthVertex', () => {
       expect(nthVertex(basePoly)(0)).toBeTruthy();
+    });
+  });
+  
+  describe('nthVector', () => {
+    it('nthVector', () => {
+      expect(nthVector(basePoly)(0)).toBeTruthy();
     });
   });
   describe('pointCount', () => {
@@ -158,9 +148,18 @@ describe('operations', () => {
   });
   describe('circumNorm', () => {
     it('reurns the normalized circumVector', () => {
-      console.log('circumNorm(basePoly)', circumNorm(basePoly));
-      console.log('circumNorm(basePoly)', apoNorm(basePoly));
       expect(circumNorm(basePoly)).toBeTruthy();
+    });
+  });
+  
+  describe('vertVex', () => {
+    it('returns the normalized vectors of the vertices', () => {
+      expect(vertVex(basePoly)).toBeTruthy();
+    });
+  });
+  describe('addCenter', () => {
+    it('adds the vector to the polygons center', () => {
+      expect(addCenter(basePoly)(nthVector(basePoly)(1))).toBeTruthy();
     });
   });
 });

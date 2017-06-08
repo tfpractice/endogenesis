@@ -6,7 +6,7 @@ const range = (x = 0) => [ ...Array(x).keys(), ];
 
 export const isEven = poly => numSides(poly) % 2 === 0;
 export const xEven = poly => !isEven(poly);
-export const baseAngle = poly => 2 * PI / numSides(poly);
+export const baseAngle = poly => (2 * PI) / numSides(poly);
 
 export const center = poly => new Vector(getX(poly), getY(poly));
 export const circumNorm = poly => Vector.fromAngle(rotation(poly));
@@ -19,11 +19,13 @@ export const apoMag = poly => radius(poly) * apoFactor(poly);
 export const apoNorm = poly => Vector.fromAngle(apoDir(poly));
 export const apoVector = poly => apoNorm(poly).mult(apoMag(poly));
 
-export const nthVertex = poly => (n = 0) =>
-  circumVector(poly).rotate(n * baseAngle(poly)).add(center(poly));
+export const nthVector = poly => (n = 0) => circumNorm(poly).rotate(n * baseAngle(poly));
 
-export const vertices = poly =>
-  range(numSides(poly)).map(nthVertex(poly));
+export const nthVertex = poly => (n = 0) => nthVector(poly)(n).add(center(poly));
+export const addCenter = poly => vec => vec.add(center(poly));
+export const vertVex = poly => range(numSides(poly)).map(nthVector(poly));
+
+export const vertices = poly => range(numSides(poly)).map(nthVertex(poly));
 
 export const pointCount = poly => segments(poly) * numSides(poly);
 export const lerpFactor = poly => segments(poly) ? segments(poly) ** -1 : 0;
