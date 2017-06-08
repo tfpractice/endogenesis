@@ -1,9 +1,9 @@
 import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
-import { apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, apoOffset, 
-  apoVector, baseAngle, baseIdx, center, circumVector, edgePoint, edgePoints, 
-  isEven, lerpFactor, lowBound, nthVertex, pointCount, segMod, upBound,
-  vertices, xEven, } from 'src/polygon/operations';
+import { apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, apoNorm, 
+  apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, circumVector, 
+  edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthVertex, pointCount,
+  segMod, upBound, vertices, xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon();
 
@@ -149,6 +149,16 @@ describe('operations', () => {
   describe('apex', () => {
     it('apex', () => {
       expect(apex(basePoly)).toBeTruthy();
+    });
+  });
+  describe('apoNorm', () => {
+    it('returns a normalized apoVector', () => {
+      expect(apoNorm(basePoly)).toBeTruthy();
+    });
+  });
+  describe('circumNorm', () => {
+    it('reurns the normalized circumVector', () => {
+      expect(circumNorm(basePoly)).toBeTruthy();
     });
   });
 });
