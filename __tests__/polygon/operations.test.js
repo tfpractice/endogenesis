@@ -2,12 +2,13 @@ import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
 import { addCenter, apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, 
   apoNorm, apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, 
-  circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthVector,
-  nthVertex, pointCount, segMod, upBound, vertices, vertVex, xEven, 
-} from 'src/polygon/operations';
+  circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthTick,
+  nthVector, nthVertex, pointCount, segMod, upBound, vertices, vertVex, 
+xEven, } from 'src/polygon/operations';
 
-const basePoly = polygon();
+const basePoly = polygon(0,0,10);
 
+console.log('basePoly', basePoly);
 console.log('edgePoints(basePoly)', edgePoints((setSegments(2)(basePoly))));
 
 describe('operations', () => {
@@ -160,6 +161,12 @@ describe('operations', () => {
   describe('addCenter', () => {
     it('adds the vector to the polygons center', () => {
       expect(addCenter(basePoly)(nthVector(basePoly)(1))).toBeTruthy();
+    });
+  });
+  describe('nthTick', () => {
+    it('returns the vector of the tick', () => {
+      console.log('nthTick(basePoly)(1)', nthTick(basePoly)(1));
+      expect(nthTick(basePoly)(1)).toBeTruthy();
     });
   });
 });
