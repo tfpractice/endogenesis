@@ -1,9 +1,9 @@
 import 'jasmine-expect';
-import { polygon, setNumSides, setSegments, } from 'src/polygon';
-import { apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, 
-  apoNorm, apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, 
+import { polygon, } from 'src/polygon';
+import { apex, apexCeil, apexFloor,
+  apoNorm, baseAngle, baseIdx, center, circumNorm, 
   circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthTick,
-  nthVector, nthVertex, pointCount, segMod, upBound, vectors, vertices, 
+ pointCount, segMod, upBound, 
 xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon(0, 0, 10);
@@ -36,31 +36,7 @@ describe('operations', () => {
       expect(center(basePoly)).toBeDefined();
     });
   });
-  describe('apoFactor', () => {
-    it('does some calculation based on polydata', () => {
-      expect(apoFactor(basePoly)).toBeDefined();
-    });
-  });
-  describe('apoOffset', () => {
-    it('does some calculation based on polydata', () => {
-      expect(apoOffset(basePoly)).toBeDefined();
-    });
-  });
-  describe('apoMag', () => {
-    it('does some calculation based on polydata', () => {
-      expect(apoMag(basePoly)).toBeDefined();
-    });
-  });
-  describe('apoDir', () => {
-    it('does some calculation based on polydata', () => {
-      expect(apoDir(basePoly)).toBeDefined();
-    });
-  });
-  describe('apoVector', () => {
-    it('does some calculation based on polydata', () => {
-      expect(apoVector(basePoly)).toBeDefined();
-    });
-  });
+
   describe('circumVector', () => {
     it('returns a vector with the magnitude and direction of the circumscribed circle', () => {
       expect(circumVector(basePoly)).toBeDefined();
