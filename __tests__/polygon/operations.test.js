@@ -1,10 +1,7 @@
 import 'jasmine-expect';
 import { polygon, } from 'src/polygon';
-import { apex, apexCeil, apexFloor,
-  apoNorm, baseAngle, baseIdx, center, circumNorm, 
-  circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthTick,
- pointCount, segMod, upBound, 
-xEven, } from 'src/polygon/operations';
+import { apex, apexCeil, apexFloor, baseAngle, center, isEven, lowBound, segMod,
+   upBound, xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon(0, 0, 10);
 
@@ -37,12 +34,6 @@ describe('operations', () => {
     });
   });
   
-  describe('circumVector', () => {
-    it('returns a vector with the magnitude and direction of the circumscribed circle', () => {
-      expect(circumVector(basePoly)).toBeDefined();
-    });
-  });
-  
   describe('upBound', () => {
     it('upBound', () => {
       expect(upBound(basePoly)).toBeTruthy();
@@ -67,16 +58,6 @@ describe('operations', () => {
   describe('apex', () => {
     it('apex', () => {
       expect(apex(basePoly)).toBeTruthy();
-    });
-  });
-  describe('apoNorm', () => {
-    it('returns a normalized apoVector', () => {
-      expect(apoNorm(basePoly)).toBeTruthy();
-    });
-  });
-  describe('circumNorm', () => {
-    it('reurns the normalized circumVector', () => {
-      expect(circumNorm(basePoly)).toBeTruthy();
     });
   });
 });

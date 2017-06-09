@@ -24,18 +24,3 @@ export const nthVector = poly => (n = 0) => normal(poly).rotate(n * baseAngle(po
 export const nthVertex = poly => (n = 0) => applyVect(poly)(nthNormal(poly)(n));
 
 export const vectors = poly => range(numSides(poly)).map(nthVector(poly));
-
-export const vertices = poly => vectors(poly).map(applyVect(poly));
-
-export const tickBase = nTix => i => floor(i / nTix);
-export const tickInv = nTix => nTix ? nTix ** -1 : 0;
-export const tickMod = nTix => i => i ? i % nTix : i;
-export const tickFactor = nTix => i => tickMod(nTix)(i) * tickInv(nTix);
-
-export const nthTick = poly => nTix => n => Vector.lerp(
-    nthVector(poly)(tickBase(nTix)(n)),
-    nthVector(poly)(tickBase(nTix)(n) + 1),
-    tickFactor(nTix)(n));
-
-export const tickVex = poly => nTix => range(nTix * numSides(poly)).map(nthTick(poly)(nTix)); 
-export const tickPoints = poly => nTix => tickVex(poly)(nTix).map(applyVect(poly));

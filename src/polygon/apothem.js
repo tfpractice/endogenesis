@@ -1,5 +1,5 @@
 import { Vector, } from 'p5';
-import { getX, getY, numSides, radius, rotation, segments, } from './data';
+import { numSides, radius, rotation, } from './data';
 import { baseAngle, } from './operations';
 
 const { cos, PI, } = Math;
