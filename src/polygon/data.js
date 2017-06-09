@@ -32,5 +32,5 @@ export const setNumSides = n => poly =>
 export const setSegments = s => poly =>
   polygon(getX(poly), getY(poly), radius(poly), rotation(poly), numSides(poly), s);
 
-      // this.centrality = true;
-      // this.parallel = true;
+  // this.centrality = true;
+  // this.parallel = true;

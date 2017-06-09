@@ -1,6 +1,6 @@
 import 'jasmine-expect';
 import { polygon, setNumSides, setSegments, } from 'src/polygon';
-import { addCenter, apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, 
+import { apex, apexCeil, apexFloor, apoDir, apoFactor, apoMag, 
   apoNorm, apoOffset, apoVector, baseAngle, baseIdx, center, circumNorm, 
   circumVector, edgePoint, edgePoints, isEven, lerpFactor, lowBound, nthTick,
   nthVector, nthVertex, pointCount, segMod, upBound, vectors, vertices, 
@@ -66,23 +66,7 @@ describe('operations', () => {
       expect(circumVector(basePoly)).toBeDefined();
     });
   });
-  describe('vertices', () => {
-    it('returns an array of n vertices', () => {
-      expect(vertices(basePoly)).toBeArray();
-    });
-  });
-  
-  describe('nthVertex', () => {
-    it('nthVertex', () => {
-      expect(nthVertex(basePoly)(0)).toBeTruthy();
-    });
-  });
-  
-  describe('nthVector', () => {
-    it('nthVector', () => {
-      expect(nthVector(basePoly)(0)).toBeTruthy();
-    });
-  });
+
   describe('pointCount', () => {
     it('pointCount', () => {
       expect(pointCount(basePoly)).toBe(3);
@@ -148,17 +132,7 @@ describe('operations', () => {
       expect(circumNorm(basePoly)).toBeTruthy();
     });
   });
-  
-  describe('vectors', () => {
-    it('returns the normalized vectors of the vertices', () => {
-      expect(vectors(basePoly)).toBeTruthy();
-    });
-  });
-  describe('addCenter', () => {
-    it('adds the vector to the polygons center', () => {
-      expect(addCenter(basePoly)(nthVector(basePoly)(1))).toBeTruthy();
-    });
-  });
+
   describe('nthTick', () => {
     it('returns the vector of the tick', () => {
       expect(nthTick(basePoly)(1)(1)).toBeTruthy();
