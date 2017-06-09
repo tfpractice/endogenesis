@@ -1,6 +1,5 @@
 import { Vector, } from 'p5';
-import * as p5 from 'p5';
-import { numSides, radius, rotation, } from './data';
+import { numSides, } from './data';
 import { range, } from './operations';
 import { applyVect, nthNormal, } from './vector';
 const { floor, } = Math;
@@ -16,7 +15,8 @@ export const tickNorm = nTix => poly => n => Vector.lerp(
     nthNormal(poly)(tickRef(nTix)(n) + 1),
     tickFactor(nTix)(n));
 
-export const nthTick = nTix => poly => n => applyVect(poly)(tickNorm(nTix)(poly)(n));
+export const nthTick = nTix => poly => n =>
+  applyVect(poly)(tickNorm(nTix)(poly)(n));
 
 export const tickVex = nTix => poly => 
   range(tickTotal(nTix)(poly)).map(tickNorm(nTix)(poly)); 
