@@ -25,9 +25,6 @@ export const scaleRadius = poly => vec => vec.mult(radius(poly));
 export const applyVect = poly => vec =>
  [ scaleRadius(poly), addCenter(poly), ].reduce((v, fn) => fn(v), vec);
 
-export const circumNorm = poly => Vector.fromAngle(rotation(poly));
-export const circumVector = poly => circumNorm(poly).mult(radius(poly));
-
 export const apoFactor = poly => cos(PI / numSides(poly));
 export const apoOffset = poly => baseAngle(poly) / 2;
 export const apoDir = poly => rotation(poly) + apoOffset(poly);
