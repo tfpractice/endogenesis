@@ -1,6 +1,6 @@
 import 'jasmine-expect';
 import { polygon, } from 'src/polygon';
-import { apex, apexCeil, apexFloor, baseAngle, center, isEven, lowBound, segMod,
+import { apex, apexCeil, apexFloor, baseAngle, center, isEven, lowBound,
    upBound, xEven, } from 'src/polygon/operations';
 
 const basePoly = polygon(0, 0, 10);

@@ -20,5 +20,3 @@ export const segMod = poly => i => i ? i % segments(poly) : i;
 export const apexFloor = poly => (pointCount(poly) - 1) % pointCount(poly);
 export const apexCeil = poly => (pointCount(poly) + 1) % pointCount(poly);
 export const apex = poly => new Vector(vertices(poly)[0].x, vertices(poly)[0].y,);
-
-// export * from './vector';
