@@ -1,5 +1,5 @@
 import 'jasmine-expect';
-import { polygon, radius, rotation, } from 'src/polygon';
+import { polygon, } from 'src/polygon';
 import { apoDir, apoFactor, apoMag, apoNorm, apoOffset, apothem, } from 'src/polygon/apothem';
 
 const basePoly = polygon();

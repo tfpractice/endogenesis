@@ -1,16 +1,8 @@
 import 'jasmine-expect';
-import { polygon, radius, rotation, } from 'src/polygon';
-import { addCenter, applyVect, normal, nthNormal, scaleRadius, unit, vectors, }
-from 'src/polygon/vector';
-import { nthTick,
-tickFactor,
-tickInv,
-tickMod,
-tickNorm, 
-tickPoints,
-tickRef,
-tickTotal,
-tickVex, } from 'src/polygon/tick';
+import { polygon, } from 'src/polygon';
+import { nthTick, tickFactor, tickInv, tickMod, tickNorm, tickPoints,
+tickRef, tickTotal, tickVex, } from 'src/polygon/tick';
+
 const basePoly = polygon();
 
 describe('tick', () => {
