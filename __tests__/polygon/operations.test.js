@@ -36,23 +36,13 @@ describe('operations', () => {
       expect(center(basePoly)).toBeDefined();
     });
   });
-
+  
   describe('circumVector', () => {
     it('returns a vector with the magnitude and direction of the circumscribed circle', () => {
       expect(circumVector(basePoly)).toBeDefined();
     });
   });
-
-  describe('pointCount', () => {
-    it('pointCount', () => {
-      expect(pointCount(basePoly)).toBe(3);
-    });
-  });
-  describe('lerpFactor', () => {
-    it('lerpFactor', () => {
-      expect(lerpFactor(basePoly)).toBe(1);
-    });
-  });
+  
   describe('upBound', () => {
     it('upBound', () => {
       expect(upBound(basePoly)).toBeTruthy();
@@ -63,26 +53,7 @@ describe('operations', () => {
       expect(lowBound(basePoly)).toBeTruthy();
     });
   });
-  describe('baseIdx', () => {
-    it('baseIdx', () => {
-      expect(baseIdx(basePoly)(1)).toBeTruthy();
-    });
-  });
-  describe('segMod', () => {
-    it('segMod', () => {
-      expect(segMod(basePoly)(1)).toBe(0);
-    });
-  });
-  describe('edgePoint', () => {
-    it('edgePoint', () => {
-      expect(edgePoint(basePoly)(1)).toBeTruthy();
-    });
-  });
-  describe('edgePoints', () => {
-    it('edgePoints', () => {
-      expect(edgePoints(basePoly)).toBeArray();
-    });
-  });
+  
   describe('apexFloor', () => {
     it('apexFloor', () => {
       expect(apexFloor(basePoly)).toBeTruthy();
@@ -106,12 +77,6 @@ describe('operations', () => {
   describe('circumNorm', () => {
     it('reurns the normalized circumVector', () => {
       expect(circumNorm(basePoly)).toBeTruthy();
-    });
-  });
-
-  describe('nthTick', () => {
-    it('returns the vector of the tick', () => {
-      expect(nthTick(basePoly)(1)(1)).toBeTruthy();
     });
   });
 });
