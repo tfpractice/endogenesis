@@ -24,12 +24,6 @@ export const baseAngle = poly => (2 * PI) / numSides(poly);
 
 export const center = poly => new Vector(getX(poly), getY(poly));
 
-// export const addCenter = poly => vec => vec.add(center(poly));
-
-// export const scaleRadius = poly => vec => vec.mult(radius(poly));
-// export const applyVect = poly => vec =>
- // [ scaleRadius(poly), addCenter(poly), ].reduce((v, fn) => fn(v), vec);
-
 export const apoFactor = poly => cos(PI / numSides(poly));
 export const apoOffset = poly => baseAngle(poly) / 2;
 export const apoDir = poly => rotation(poly) + apoOffset(poly);
@@ -50,7 +44,5 @@ export const edgePoints = poly => tickPoints(poly)(segments(poly));
 export const apexFloor = poly => (pointCount(poly) - 1) % pointCount(poly);
 export const apexCeil = poly => (pointCount(poly) + 1) % pointCount(poly);
 export const apex = poly => new Vector(vertices(poly)[0].x, vertices(poly)[0].y,);
-
-// export { nthVector, vertices, tickVex, vectors, nthTick, nthVertex, };
 
 export * from './vector';

@@ -1,14 +1,8 @@
 import 'jasmine-expect';
-import { center, getX, getY, numSides, polygon, radius,
-  rotation, segments, setNumSides, setRadius, setRotation, setSegments, setX, setY, } 
+import { polygon, radius, rotation, } 
 from 'src/polygon';
-import { addCenter,
-applyVect,
-normal,
-nthNormal, 
-radial,
-scaleRadius,
-unit, vectors, } from 'src/polygon/vector';
+import { addCenter, applyVect, normal, nthNormal, scaleRadius, unit, vectors, }
+from 'src/polygon/vector';
 const basePoly = polygon();
 
 describe('vector', () => {
@@ -37,11 +31,7 @@ describe('vector', () => {
       expect(applyVect(basePoly)(unit()).mag()).toEqual(radius(basePoly));
     });
   });
-  describe('radial', () => {
-    it('returns the raidal vector of the polygom ', () => {
-      expect(radial(basePoly).mag()).toEqual(radius(basePoly));
-    });
-  });
+  
   describe('nthNormal', () => {
     it('returns a vector rotated by the polygons base angle n times', () => {
       expect(nthNormal(basePoly)(3).angleBetween(nthNormal(basePoly)(0))).toEqual(3 * rotation(basePoly));
