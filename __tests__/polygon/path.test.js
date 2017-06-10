@@ -9,11 +9,6 @@ const basePoly = polygon();
 const tix3 = tickPoints(3)(basePoly);
 const tix9 = tickPoints(9)(basePoly);
 
-// console.log('tix3', tix3);
-// console.log('center(basePoly)', center(basePoly));
-console.log('tix9', tix9);
-console.log('withBase(center(basePoly))(tix9)[8]', withBase(center(basePoly))(tix9));
-
 describe('path', () => {
   describe('closed', () => {
     it('returns an array of vertices with the first vertex at the end', () => {
