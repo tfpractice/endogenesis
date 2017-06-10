@@ -1,7 +1,33 @@
+import { first, } from 'fenugreek-collections';
+import { vertices, } from './vertex';
+import { tickPoints, } from './tick';
+export const closed = verts => verts.concat(first(verts));
 
-export const closed = verts => verts.concat([ verts[0], ]);
-export const withBase = base => verts => verts.reduce((prev, curr, ix) => 
-  (ix && (ix % 3 === 2)) ? prev.concat(base, curr) : prev.concat(curr)
-, []);
+export const insertIf = bool => val => (coll, next) =>
+bool ? coll.concat(val, next) : coll.concat(next);
 
-// export const 
+const insertAt = (x = 3) => val => (pv = [], next, ix) =>
+ (!ix || (ix % (x - 1) === (0))) ? pv.concat(val, next) : pv.concat(next);
+
+export const withBase = base => verts => 
+   closed(verts.reduce(insertAt(3)(base), [ ]));
+
+export const triangulate = base => verts => 
+  closed(verts.reduce(insertAt(3)(base), [ ]));
+
+export const closedInterval = int => base => verts =>
+    closed(verts.reduce(insertAt(int)(base), [ ]));
+
+export const baseInterval = int => base => verts =>
+      closed(verts.reduce(insertAt(int)(base), [ ]));
+
+export const path = poly => closed(vertices(poly));
+
+export const basePath = base => poly =>
+  closed(base.concat(vertices(poly)));
+
+export const tickPath = base => nTix => poly => 
+    baseInterval(3)(base)(tickPoints(nTix)(poly));
+
+export const tickPathInt = int => base => nTix => poly => 
+      baseInterval(int)(base)(tickPoints(nTix)(poly));
