@@ -9,7 +9,8 @@ export const applyVect = poly => vec =>
 
 export const unit = () => new Vector(1, 0);
 export const normal = poly => Vector.fromAngle(rotation(poly));
-export const radial = poly => applyVect(poly)(normal(poly));
+
+// export const radial = poly => applyVect(poly)(normal(poly));
 
 export const nthNormal = poly => (n = 0) => normal(poly).rotate(n * baseAngle(poly));
 export const vectors = poly => range(numSides(poly)).map(nthNormal(poly));

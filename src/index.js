@@ -1,3 +1,3 @@
-import * as Polygon from './polygon';
+export * from './polygon';
 
-export { Polygon, };
+// export { Polygon, };

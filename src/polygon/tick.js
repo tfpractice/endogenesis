@@ -24,13 +24,14 @@ export const tickVex = nTix => poly =>
 export const tickPoints = nTix => poly =>
   tickVex(nTix)(poly).map(applyVect(poly));
 
-export const upBound = nTix => poly => 
-  round((tickTotal(nTix)(poly) - 1) / 2);
-export const lowBound = nTix => poly => upBound(poly);
-
-export const apexFloor = nTix => poly => 
-    (tickTotal(nTix)(poly) - 1) % tickTotal(nTix)(poly);
-export const apexCeil = nTix => poly =>
-    (tickTotal(nTix)(poly) + 1) % tickTotal(nTix)(poly);
-export const apex = nTix => poly => 
-    new Vector(vertices(poly)[0].x, vertices(poly)[0].y,);
+// 
+// export const upBound = nTix => poly => 
+//   round((tickTotal(nTix)(poly) - 1) / 2);
+// export const lowBound = nTix => poly => upBound(poly);
+// 
+// export const apexFloor = nTix => poly => 
+//     (tickTotal(nTix)(poly) - 1) % tickTotal(nTix)(poly);
+// export const apexCeil = nTix => poly =>
+//     (tickTotal(nTix)(poly) + 1) % tickTotal(nTix)(poly);
+// export const apex = nTix => poly => 
+//     new Vector(vertices(poly)[0].x, vertices(poly)[0].y,);
