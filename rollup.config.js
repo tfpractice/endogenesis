@@ -16,6 +16,10 @@ export default {
   amd: { id: 'endogenesis', },
   moduleName: 'endogenesis',
   external: [ 'p5', 'fenugreek-collections', ],
+  globals: {
+    p5: 'p5',
+    'fenugreek-collections': 'fenugreek-collections',
+  },
   sourceMap: true,
   exports: 'named',
   plugins: [
