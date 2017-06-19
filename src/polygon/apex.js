@@ -19,7 +19,7 @@ export const apexNorm = (nTix = 1) => poly => Vector.lerp(
   nthTick(nTix)(poly)(apexCeil(nTix)(poly))
   ,0.5);
 
-export const apex = (nTix = 1) => poly => applyVect(poly)(apexNorm(nTix)(poly));
-
-  // this.centrality = true;
-  // this.parallel = true;
+export const apex = (nTix = 1) => poly => Vector.lerp(
+  nthTick(nTix)(poly)(apexFloor(nTix)(poly)),
+  nthTick(nTix)(poly)(apexCeil(nTix)(poly))
+  ,0.5);

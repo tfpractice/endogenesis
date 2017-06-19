@@ -26,7 +26,7 @@ describe('apex', () => {
   });
   describe('apexNorm', () => {
     it('returns the normalized apex vector', () => {
-      console.log('apexNorm(3', apexNorm(3)(basePoly));
+      // console.log('apexNorm(3', apex(3)(basePoly));
     });
   });
 });

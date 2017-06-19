@@ -2,7 +2,7 @@ import { Vector, } from 'p5';
 import { numSides, } from './data';
 import { range, } from './operations';
 import { applyVect, nthNormal, } from './vector';
-const { floor, round, } = Math;
+const { floor, } = Math;
 
 export const tickRef = (nTix = 1) => i => floor(i / nTix);
 export const tickInv = (nTix = 1) => nTix ? nTix ** -1 : 0;
@@ -23,15 +23,3 @@ export const tickVex = (nTix = 1) => poly =>
 
 export const tickPoints = (nTix = 1) => poly =>
   tickVex(nTix)(poly).map(applyVect(poly));
-
-const upBound = (nTix = 1) => poly => 
-  round((tickTotal(nTix)(poly) - 1) / 2);
-const lowBound = (nTix = 1) => poly => upBound2(poly);
-
-const apexFloor = (nTix = 1) => poly => 
-    (tickTotal(nTix)(poly) - 1) % tickTotal(nTix)(poly);
-
-const apexCeil = (nTix = 1) => poly =>
-    (tickTotal(nTix)(poly) + 1) % tickTotal(nTix)(poly);
-const apex = (nTix = 1) => poly => 
-    new Vector(vertices(poly)[0].x, vertices(poly)[0].y,);

@@ -33,9 +33,9 @@ export const tickPath = base => nTix => poly =>
 
 export const tickPathInt = int => base => nTix => poly => 
       baseInterval(int)(base)(tickPoints(nTix)(poly));
-      
+
 export const centralTicks = nTix => poly =>
     tickPath(center(poly))(nTix)(poly);
-    
+
 export const surroundTix = nTix => poly =>
     tickPath(apex(nTix)(poly))(nTix)(poly);
