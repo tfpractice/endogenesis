@@ -3,6 +3,7 @@ import { vertices, } from './vertex';
 import { tickPoints, } from './tick';
 import { center, } from './operations';
 import { apex, } from './apex';
+
 export const closed = verts => verts.concat(first(verts));
 
 export const insertIf = bool => val => (coll, next) =>
