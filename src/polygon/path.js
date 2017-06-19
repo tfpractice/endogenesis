@@ -1,6 +1,8 @@
 import { first, } from 'fenugreek-collections';
 import { vertices, } from './vertex';
 import { tickPoints, } from './tick';
+import { center, } from './operations';
+import { apex, } from './apex';
 export const closed = verts => verts.concat(first(verts));
 
 export const insertIf = bool => val => (coll, next) =>
@@ -31,3 +33,9 @@ export const tickPath = base => nTix => poly =>
 
 export const tickPathInt = int => base => nTix => poly => 
       baseInterval(int)(base)(tickPoints(nTix)(poly));
+      
+export const centralTicks = nTix => poly =>
+    tickPath(center(poly))(nTix)(poly);
+    
+export const surroundTix = nTix => poly =>
+    tickPath(apex(nTix)(poly))(nTix)(poly);

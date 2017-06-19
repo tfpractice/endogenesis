@@ -1,9 +1,9 @@
 import 'jasmine-expect';
 import { polygon, } from 'src/polygon';
 import { center, } from 'src/polygon/operations';
-import { nthTick, tickFactor, tickInv, tickMod, tickNorm, tickPoints,
-tickRef, tickTotal, tickVex, } from 'src/polygon/tick';
-import { closed,withBase, } from 'src/polygon/path';
+import { nthTick, tickFactor, tickInv, tickMod,
+tickNorm, tickPoints, tickRef, tickTotal,tickVex, } from 'src/polygon/tick';
+import { centralTicks,closed,surroundTix, withBase, } from 'src/polygon/path';
 
 const basePoly = polygon();
 const tix3 = tickPoints(3)(basePoly);
@@ -20,6 +20,16 @@ describe('path', () => {
       expect(withBase(center(basePoly))(tix3)[3]).toEqual(center(basePoly));
       expect(withBase(center(basePoly))(tix9)[6]).toEqual(center(basePoly));
       expect(withBase(center(basePoly))(tix9)[9]).toEqual(center(basePoly));
+    });
+  });
+  describe('centralTicks', () => {
+    it('tick centralTicks', () => {
+      console.log('centralTicks(3', centralTicks(3)(basePoly));
+    });
+  });
+  describe('surroundTix', () => {
+    it('apex ticks', () => {
+      console.log('surroundTix(3', surroundTix(3)(basePoly));
     });
   });
 });
