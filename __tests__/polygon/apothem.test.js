@@ -1,6 +1,7 @@
 import 'jasmine-expect';
 import { polygon, } from 'src/polygon';
-import { apoDir, apoFactor, apoMag, apoNorm, apoOffset, apothem, } from 'src/polygon/apothem';
+import { apoDir, apoFactor, apoMag, apoNorm, apoOffset, apothem,inscribed,
+ } from 'src/polygon/apothem';
 
 const basePoly = polygon();
 
@@ -33,6 +34,11 @@ describe('apothem', () => {
   describe('apothem', () => {
     it('does some calculation based on polydata', () => {
       expect(apothem(basePoly)).toBeDefined();
+    });
+  });
+  describe('inscribed', () => {
+    it('returns a polygon that fits within the given polygon', () => {
+      expect(inscribed(basePoly).rotation).toEqual(apoDir(basePoly));
     });
   });
 });
