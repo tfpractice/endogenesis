@@ -1,4 +1,4 @@
-// export * from './apex';
+export * from './apex';
 export * from './apothem';
 export * from './data';
 export * from './operations';
