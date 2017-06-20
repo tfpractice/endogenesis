@@ -13,4 +13,4 @@ export const apoNorm = poly => Vector.fromAngle(apoDir(poly));
 export const apothem = poly => addCenter(poly)(apoNorm(poly).mult(apoMag(poly)));
 export const inscribed = poly => 
 [ setRadius(apoMag(poly)), setRotation(apoDir(poly)), ]
-  .reduce((p, fn) => fn(p));
+  .reduce((p, fn) => fn(p), poly);
