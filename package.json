@@ -65,5 +65,9 @@
     "unmockedModulePathPatterns": [
       "jasmine-expect"
     ]
+  },
+  "dependencies": {
+    "fenugreek-collections": "^1.1.1",
+    "p5": "^0.5.11"
   }
 }

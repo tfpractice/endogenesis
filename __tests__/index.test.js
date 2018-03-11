@@ -1,7 +1,7 @@
 import 'jasmine-expect';
-import { polygon, } from 'src/polygon';
+
 describe('polygon', () => {
-  it('is the string polygon', () => {
-    expect(polygon).toEqual('polygon');
+  it('returns an object with a geometric properties', () => {
+    expect(0).toEqual(0);
   });
 });

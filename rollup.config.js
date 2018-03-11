@@ -13,8 +13,13 @@ export default {
       { dest: 'dist/bundle.cjs.js', format: 'cjs', },
       { dest: 'dist/bundle.umd.js', format: 'umd', },
   ],
-  amd: { id: 'endogenesis' },
+  amd: { id: 'endogenesis', },
   moduleName: 'endogenesis',
+  external: [ 'p5', 'fenugreek-collections', ],
+  globals: {
+    p5: 'p5',
+    'fenugreek-collections': 'fenugreek-collections',
+  },
   sourceMap: true,
   exports: 'named',
   plugins: [
@@ -22,7 +27,7 @@ export default {
     commonjs(),
     babel({
       exclude: 'node_modules/**',
-      plugins:  ['external-helpers',],
+      plugins:  [ 'external-helpers', ],
     }),
     progress({ clearLine: false, }),
     filesize(),
