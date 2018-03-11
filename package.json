@@ -1,6 +1,6 @@
 {
   "name": "endogenesis",
-  "version": "a small library for producing fractal geometric data Edit",
+  "version": "0.1.1",
   "description": "a small library for producing fractal geometric data Edit",
   "main": "index.js",
   "repository": "git@github.com:tfpractice/endogenesis.git",
